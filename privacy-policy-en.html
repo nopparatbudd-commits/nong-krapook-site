@@ -27,7 +27,7 @@
 <img class="cover" src="cover.png" alt="Nong Krapook — income &amp; expense tracker app">
 
 <h1>Privacy Policy — Nong Krapook (น้องกระปุก)</h1>
-<p class="updated">Last updated: July 1, 2026</p>
+<p class="updated">Last updated: November 24, 2026</p>
 
 <p>
 "Nong Krapook" is a personal income/expense tracking app developed by an individual developer.
@@ -61,24 +61,56 @@ cloud backup in the current version.
     for this purpose.
   </li>
   <li>
-    <strong>Internet access</strong> — used only when you actively use the slip-OCR
-    feature (see section 3) and when opening external links (e.g. a link to create an
+    <strong>Notification access — Android only, and only when you turn on "Record from
+    bank notifications" yourself</strong> — used to record incoming/outgoing money
+    automatically from your banking apps' notifications (see section 2.1). The app shows
+    an explanation first, then you grant access yourself in the system settings. You can
+    turn it off at any time in the app and in system settings.
+  </li>
+  <li>
+    <strong>Internet access</strong> — used only when you choose to read slips with the
+    Typhoon API (see section 3) and when opening external links (e.g. a link to create an
     API key).
   </li>
 </ul>
 
+<h2>2.1 Recording from bank notifications</h2>
+<ul>
+  <li><strong>Only notifications from supported banking/card/wallet apps are read</strong>:
+    K PLUS, MAKE by KBank, Krungthai NEXT, Paotang, SCB EASY, Bualuang mBanking, KMA (Krungsri),
+    ttb touch, MyMo, BAAC Mobile, GHB ALL GEN, UOB TMRW, CIMB THAI, LHB You, KKP Better, Dime!,
+    TISCO My Wealth, ICBC Mobile, KTC Mobile, UCHOOSE, CardX, AEON THAI MOBILE, TrueMoney,
+    plus LINE / SMS messages <strong>only when the sender is a bank</strong>. Notifications
+    from other apps and personal chats are skipped and never stored.</li>
+  <li>OTP / verification-code messages are skipped and never stored.</li>
+  <li>The app extracts only the amount, direction (in/out), the last digits of the account,
+    and the time to create a transaction. The notification text used is kept in the app's
+    data file on your device (to prevent duplicates) and is deleted when you reset the data
+    or uninstall the app.</li>
+  <li><strong>Processing happens on your device</strong>, with one exception: if you have
+    chosen to read slips with the Typhoon API and the app cannot understand a notification
+    from a banking app, it sends <strong>only that notification's text</strong> to Typhoon
+    (section 3) to extract the amount. In on-device mode nothing is sent.</li>
+</ul>
+
 <h2>3. Third-Party Service</h2>
 <p>
-When you use the "auto-scan" feature or manually upload a slip image, the app sends
-<strong>only the specific slip image you selected or that was detected</strong> to the
-<a href="https://opentyphoon.ai/" target="_blank" rel="noopener">Typhoon OCR API</a>
-(a service by SCB 10X) to convert the image into text so the app can extract the
-amount, date, and transaction details. You must configure your own API key before
-using this feature — if no key is configured, this feature does not run and no data
-is sent anywhere.
+The app offers two ways to read slips; you choose one at a time on the slip-reading page:
 </p>
+<ul>
+  <li><strong>On-device</strong> — uses a text-recognition model bundled with the app
+    (OpenThai OCR) and runs entirely on your device. <strong>No images or data leave your
+    device.</strong></li>
+  <li><strong>Typhoon API</strong> — available only after you configure your own API key.
+    The app sends <strong>only the slip images you select or that are detected in your bank
+    albums</strong> to the <a href="https://opentyphoon.ai/" target="_blank" rel="noopener">Typhoon API</a>
+    (a service by SCB 10X) to convert them into text, then sends <strong>that text together with
+    your list of in-app categories</strong> to Typhoon's AI to double-check the amount/date and
+    choose a category, as well as bank-notification texts the app cannot understand (section 2.1).
+    Your transaction history and other in-app data are not sent.</li>
+</ul>
 <p>
-Please refer to Typhoon OCR's own privacy policy on their website for further details
+Please refer to Typhoon's own privacy policy on their website for further details
 on how they handle data.
 </p>
 
